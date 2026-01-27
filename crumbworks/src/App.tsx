@@ -1,5 +1,7 @@
 import "./App.css";
 import Banner from "./components/Banner";
+import FAQ from "./components/FAQ";
+import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 
 function App() {
@@ -7,6 +9,8 @@ function App() {
     <>
       <Navbar />
       <Banner />
+      <FAQ />
+      <Footer />
     </>
   );
 }

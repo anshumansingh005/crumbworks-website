@@ -10,7 +10,7 @@ const Banner = () => {
         "
       >
         {/* Dark Overlay for text readability */}
-        <div className="absolute inset-0 bg-yellow-600/30 z-10" />
+        <div className="absolute inset-0 z-10" />
 
         {/* Hero Image */}
 

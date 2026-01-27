@@ -43,12 +43,13 @@ const Navbar = () => {
         isVisible ? "translate-y-0 opacity-100" : "-translate-y-32 opacity-0"
       }`}
     >
-      <div className="mx-auto relative">
+      <div className="mx-auto relative max-w-[1408px]">
         {/* Main Navbar Container */}
         <div
           className="
             relative z-20 bg-white
-            rounded-br-[40px] rounded-tl-[40px] rounded-tr-none rounded-bl-none
+            rounded-tl-[32px] rounded-tr-[4px] rounded-br-[32px] rounded-bl-[4px]
+            md:rounded-tl-[50px] md:rounded-tr-[12px] md:rounded-br-[50px] md:rounded-bl-[12px]
             px-6 py-3 flex items-center justify-between
           "
         >
@@ -136,7 +137,7 @@ const Navbar = () => {
         <div
           className={`
             md:hidden absolute top-[calc(100%-20px)] left-0 w-full pt-10 pb-6 px-8
-            bg-white rounded-br-[40px] shadow-2xl z-10
+            bg-white rounded-br-[32px] shadow-2xl z-10
             transition-all duration-500 ease-in-out
             ${
               isOpen

@@ -4,6 +4,7 @@
   --color-bg: #fafae3;
   --color-white: #ffffff;
   --color-yellow: #ffd700;
+  --color-blue: #0044cc;
 }
 @layer base {
   body {
