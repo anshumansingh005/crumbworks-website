@@ -30,10 +30,10 @@ const faqs = [
 
 const FAQ = () => {
   return (
-    <section className="py-20 px-6 md:px-12  text-brand-primary">
-      <div className="max-w-[896px] mx-auto">
+    <section className="py-20 px-3.5 md:px-12  text-brand-primary">
+      <div className="max-w-4xl mx-auto">
         <h2
-          className="font-display text-[45px] md:text-[64px] text-blue mb-8 md:mb-12 text-center max-w-[618px] mx-auto"
+          className="font-display text-[45px] md:text-[64px] text-blue mb-8 md:mb-12 text-center max-w-154.5 mx-auto"
           style={{ textShadow: "4px 6px 0px #0000001A" }}
         >
           Need to Know? We're Here to Help!
@@ -63,7 +63,7 @@ const Accordion = ({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className=" rounded-[12px] pt-[18px] pr-[24px] pb-[18px] pl-[24px] md:px-[32px] md:py-[18px] transition-all duration-300 bg-white">
+    <div className=" rounded-xl pt-4.5 pr-6 pb-4.5 pl-6 md:px-8 md:py-4.5 transition-all duration-300 bg-white">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center justify-between w-full text-left group"

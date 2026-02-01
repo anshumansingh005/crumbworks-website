@@ -19,15 +19,12 @@ const Navbar = () => {
     { name: "Our Story", href: "#about" },
   ];
 
-  // Logic: Hide on scroll down, show on scroll up
   useEffect(() => {
     const controlNavbar = () => {
       if (window.scrollY > lastScrollY && window.scrollY > 80) {
-        // Scrolling Down: Hide
         setIsVisible(false);
-        setIsOpen(false); // Auto-close mobile menu on scroll down
+        setIsOpen(false);
       } else {
-        // Scrolling Up: Show
         setIsVisible(true);
       }
       setLastScrollY(window.scrollY);
@@ -43,17 +40,15 @@ const Navbar = () => {
         isVisible ? "translate-y-0 opacity-100" : "-translate-y-32 opacity-0"
       }`}
     >
-      <div className="mx-auto relative max-w-[1408px]">
-        {/* Main Navbar Container */}
+      <div className="mx-auto relative max-w-352">
         <div
           className="
             relative z-20 bg-white
-            rounded-tl-[32px] rounded-tr-[4px] rounded-br-[32px] rounded-bl-[4px]
-            md:rounded-tl-[50px] md:rounded-tr-[12px] md:rounded-br-[50px] md:rounded-bl-[12px]
-            px-6 py-3 flex items-center justify-between
+            rounded-tl-4xl rounded-tr-sm rounded-br-4xl rounded-bl-sm
+            md:rounded-tl-[50px] md:rounded-tr-xl md:rounded-br-[50px] md:rounded-bl-xl
+            px-3.5 md:px-6 py-3 flex items-center justify-between
           "
         >
-          {/* 1. LEFT: Mobile Hamburger (shown only on mobile) */}
           <div className="flex-1 md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -80,7 +75,6 @@ const Navbar = () => {
             </button>
           </div>
 
-          {/* 2. LEFT: Desktop Social Icons (hidden on mobile) */}
           <div className="hidden md:flex flex-1 items-center gap-1">
             <a
               href="https://instagram.com"
@@ -105,7 +99,6 @@ const Navbar = () => {
             </a>
           </div>
 
-          {/* 3. CENTER: Logo */}
           <div className="flex-none">
             <a href="#home">
               <img
@@ -116,7 +109,6 @@ const Navbar = () => {
             </a>
           </div>
 
-          {/* 4. RIGHT: Desktop Links */}
           <div className="hidden md:flex flex-1 gap-8 justify-end">
             {leftLinks.map((link) => (
               <a
@@ -129,15 +121,13 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* 5. Mobile Spacer (Keeps logo centered on mobile) */}
           <div className="flex-1 md:hidden" />
         </div>
 
-        {/* 6. MOBILE MENU OVERLAY */}
         <div
           className={`
-            md:hidden absolute top-[calc(100%-20px)] left-0 w-full pt-10 pb-6 px-8
-            bg-white rounded-br-[32px] shadow-2xl z-10
+            md:hidden absolute top-[calc(100%-20px)] left-0 w-full pt-10 pb-6 px-3.5
+            bg-white rounded-br-4xl shadow-2xl z-10
             transition-all duration-500 ease-in-out
             ${
               isOpen
@@ -147,7 +137,6 @@ const Navbar = () => {
           `}
         >
           <div className="flex flex-col gap-4">
-            {/* Links */}
             {leftLinks.map((link) => (
               <a
                 key={link.name}
@@ -159,7 +148,6 @@ const Navbar = () => {
               </a>
             ))}
 
-            {/* Social Media Icons moved here for Mobile */}
             <div className="flex items-center gap-6 border-t border-gray-100">
               <a href="https://instagram.com" target="_blank">
                 <img src={instagram} className="w-6 h-6" />

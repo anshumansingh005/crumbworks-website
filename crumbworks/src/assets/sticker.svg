@@ -1,0 +1,38 @@
+<svg width="600" height="250" viewBox="0 0 600 250" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <path id="curveTop" d="M 50,200 Q 300,20 550,200" fill="transparent"/>
+    <path id="curveBottom" d="M 50,255 Q 300,75 550,255" fill="transparent"/>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#fbfceb" />
+
+  <g transform="rotate(-12, 300, 125)">
+
+    <g transform="translate(3, 3)">
+      <text font-family="Impact, Arial Black, sans-serif" font-size="48" fill="#cccccc" letter-spacing="1">
+        <textPath href="#curveTop" startOffset="50%" text-anchor="middle">
+          HIGHLY ADDICTIVE.
+        </textPath>
+      </text>
+      <text font-family="Impact, Arial Black, sans-serif" font-size="48" fill="#cccccc" letter-spacing="1">
+        <textPath href="#curveBottom" startOffset="55%" text-anchor="middle">
+          ADD BOTH TO CART!
+        </textPath>
+      </text>
+    </g>
+
+    <g>
+      <text font-family="Impact, Arial Black, sans-serif" font-size="48" fill="#164BC6" letter-spacing="1">
+        <textPath href="#curveTop" startOffset="50%" text-anchor="middle">
+          HIGHLY ADDICTIVE.
+        </textPath>
+      </text>
+      <text font-family="Impact, Arial Black, sans-serif" font-size="48" fill="#164BC6" letter-spacing="1">
+        <textPath href="#curveBottom" startOffset="55%" text-anchor="middle">
+          ADD BOTH TO CART!
+        </textPath>
+      </text>
+    </g>
+
+  </g>
+</svg>

@@ -7,9 +7,8 @@ import linkedin from "../assets/linkedin-icon.svg";
 
 const Footer = () => {
   return (
-    <footer className="bg-blue text-white py-12 px-6 md:px-12">
+    <footer className="bg-blue text-white py-12 px-3.5 md:px-12">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-4 md:gap-12">
-        {/* 1. Logo & Text */}
         <div className="flex flex-col gap-6 md:flex-1 text-white">
           <a href="#home" className="inline-block">
             <img
@@ -27,7 +26,6 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* 2. Our Flavours */}
         <FooterAccordion title="Our Flavours">
           <div className="flex flex-col gap-3">
             <a
@@ -45,7 +43,6 @@ const Footer = () => {
           </div>
         </FooterAccordion>
 
-        {/* 3. Legal */}
         <FooterAccordion title="Legal">
           <div className="flex flex-col gap-3">
             <a
@@ -69,7 +66,6 @@ const Footer = () => {
           </div>
         </FooterAccordion>
 
-        {/* 4. Social Media */}
         <FooterAccordion title="Follow Us">
           <div className="flex items-center gap-4">
             <a
@@ -100,7 +96,6 @@ const Footer = () => {
         </FooterAccordion>
       </div>
 
-      {/* Copyright */}
       <div className="mt-12 pt-8 border-t border-gray-100 text-center md:text-left">
         <p className="text-xs opacity-50 uppercase tracking-wider">
           &copy; {new Date().getFullYear()} Crumbworks. All rights reserved.
@@ -119,7 +114,7 @@ const FooterAccordion = ({ title, children }: FooterAccordionProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="border border-white rounded-[12px] pt-[18px] pr-[24px] pb-[18px] pl-[24px] md:border-none md:p-0 md:flex-1">
+    <div className="border border-white rounded-xl pt-4.5 pr-6 pb-4.5 pl-6 md:border-none md:p-0 md:flex-1">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center justify-between w-full md:mb-6 md:cursor-default md:pointer-events-none group text-left"
