@@ -1,10 +1,5 @@
+import { Assets } from "@assets";
 import { useRef, useState } from "react";
-import coatsBinds from "../assets/coat-finish.svg";
-import highFibre from "../assets/fibre.svg";
-import noPreservatives from "../assets/preservative.svg";
-import realBread from "../assets/real-bread.svg";
-import lowSodium from "../assets/sodium.svg";
-import toastedRight from "../assets/toasted.svg";
 
 export interface Feature {
   id: number;
@@ -12,12 +7,12 @@ export interface Feature {
   src: string;
 }
 const features: Feature[] = [
-  { id: 1, title: "NO PRESERVATIVES", src: noPreservatives },
-  { id: 2, title: "LOW SODIUM", src: lowSodium },
-  { id: 3, title: "HIGH FIBRE", src: highFibre },
-  { id: 4, title: "COATS. BINDS. FINISHES", src: coatsBinds },
-  { id: 5, title: "FROM REAL BREAD", src: realBread },
-  { id: 6, title: "TOASTED RIGHT", src: toastedRight },
+  { id: 1, title: "NO PRESERVATIVES", src: Assets.noPreservatives },
+  { id: 2, title: "LOW SODIUM", src: Assets.lowSodium },
+  { id: 3, title: "HIGH FIBRE", src: Assets.highFibre },
+  { id: 4, title: "COATS. BINDS. FINISHES", src: Assets.coatsBinds },
+  { id: 5, title: "FROM REAL BREAD", src: Assets.realBread },
+  { id: 6, title: "TOASTED RIGHT", src: Assets.toastedRight },
 ];
 
 const chunkedFeatures: Feature[][] = [];

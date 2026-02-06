@@ -1,6 +1,5 @@
+import { Assets } from "@assets";
 import { useEffect, useState } from "react";
-import american from "../assets/American-bread.webp";
-import pankobread from "../assets/Panko-bread.webp";
 
 interface ProductType {
   id: number;
@@ -15,7 +14,7 @@ const PRODUCTS: ProductType[] = [
   {
     id: 1,
     title: "Classic Bread Crumbs",
-    image: pankobread,
+    image: Assets.pankobread,
     tags: ["EXTRA CRUNCH", "CLASSIC TASTE"],
     description:
       "This is for anyone who's ever made a great cutlet and still thought, 'Could've been crispier.' Our Panko is the flakier, crunchier kind of breadcrumb that fries up golden without soaking up all the oil.",
@@ -24,7 +23,7 @@ const PRODUCTS: ProductType[] = [
   {
     id: 2,
     title: "Panko Bread Crumbs",
-    image: american,
+    image: Assets.american,
     tags: ["EXTRA CRUNCH", "CLASSIC TASTE"],
     description:
       "This is for anyone who's ever made a great cutlet and still thought, “Could've been crispier Our Panko is the flakier, crunchier kind of breadcrumb that fries up golden without soaking up all the oil. It's lighter than the regular kind, so your food ends up crisp on the outside and still soft inside (a good thing).We didn't invent it,  it's been a Japanese pantry staple forever but we did make a version that's easy to use, clean, and actually holds up. No fillers, no weird taste, just bigger flakes that know their job and do it well.",
@@ -124,7 +123,7 @@ export default function ProductDisplay() {
           {PRODUCTS.map((product) => (
             <div
               key={product.id}
-              className="w-full max-w-100 h-159.5 lg:max-w-125 lg:h-168.25 rounded-3xl p-0 bg-transparent flex flex-col items-center text-center relative hover:shadow-lg transition-shadow duration-300"
+              className="w-full max-w-100 h-159.5 lg:max-w-125 lg:h-168.25 rounded-3xl p-0 bg-transparent flex flex-col items-center text-center relative"
             >
               <div className="w-full h-100 lg:h-125 mb-6 relative border-[0.91px] border-[#0E0E0E33] rounded-[31.02px] flex items-center justify-center">
                 <img
@@ -150,7 +149,7 @@ export default function ProductDisplay() {
                   ))}
                 </div>
 
-                <div className="flex flex-col lg:flex-row gap-4 w-full mt-auto px-6 items-center">
+                <div className="flex flex-col lg:flex-row gap-4 w-full mt-auto items-center">
                   <button className="w-full lg:flex-1 border border-[#164BC6] text-[#164BC6] h-16 lg:h-auto lg:py-3 max-w-100 flex items-center justify-center rounded-full font-bold text-sm uppercase tracking-wide hover:bg-blue-50 transition-colors">
                     Bulk Order
                   </button>

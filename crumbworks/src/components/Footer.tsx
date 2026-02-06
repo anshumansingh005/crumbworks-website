@@ -1,10 +1,6 @@
+import { Assets } from "@assets";
 import type { ReactNode } from "react";
 import { useState } from "react";
-import companyLogo from "../assets/company-logo-white.svg";
-import facebook from "../assets/fb-icon.svg";
-import instagram from "../assets/instagram-icon.svg";
-import linkedin from "../assets/linkedin-icon.svg";
-
 const Footer = () => {
   return (
     <footer className="bg-blue text-white py-12 px-3.5 md:px-12">
@@ -12,7 +8,7 @@ const Footer = () => {
         <div className="flex flex-col gap-6 md:flex-1 text-white">
           <a href="#home" className="inline-block">
             <img
-              src={companyLogo}
+              src={Assets.companyLogoWhite}
               alt="Crumbworks Logo"
               className="h-10 w-auto"
             />
@@ -74,7 +70,7 @@ const Footer = () => {
               rel="noreferrer"
               className="hover:opacity-70 transition-opacity"
             >
-              <img src={instagram} alt="Instagram" className="w-6 h-6" />
+              <img src={Assets.instagram} alt="Instagram" className="w-6 h-6" />
             </a>
             <a
               href="https://facebook.com"
@@ -82,7 +78,7 @@ const Footer = () => {
               rel="noreferrer"
               className="hover:opacity-70 transition-opacity"
             >
-              <img src={facebook} alt="Facebook" className="w-6 h-6" />
+              <img src={Assets.facebook} alt="Facebook" className="w-6 h-6" />
             </a>
             <a
               href="https://linkedin.com"
@@ -90,7 +86,7 @@ const Footer = () => {
               rel="noreferrer"
               className="hover:opacity-70 transition-opacity"
             >
-              <img src={linkedin} alt="LinkedIn" className="w-6 h-6" />
+              <img src={Assets.linkedin} alt="LinkedIn" className="w-6 h-6" />
             </a>
           </div>
         </FooterAccordion>
