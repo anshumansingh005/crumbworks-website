@@ -31,62 +31,6 @@ const PRODUCTS: ProductType[] = [
   },
 ];
 
-const Sticker = () => (
-  <svg
-    viewBox="0 0 600 250"
-    className="w-full max-w-75 lg:max-w-100 mx-auto absolute -top-16 left-0 right-0 z-10 pointer-events-none"
-  >
-    <path id="curveTop" d="M 50,200 Q 300,20 550,200" fill="transparent" />
-    <path id="curveBottom" d="M 50,255 Q 300,75 550,255" fill="transparent" />
-    <g transform="rotate(-12, 300, 125)">
-      <g transform="translate(3, 3)">
-        <text
-          fontFamily="Impact, sans-serif"
-          fontSize="48"
-          fill="#cccccc"
-          letterSpacing="1"
-        >
-          <textPath href="#curveTop" startOffset="50%" textAnchor="middle">
-            HIGHLY ADDICTIVE.
-          </textPath>
-        </text>
-        <text
-          fontFamily="Impact, sans-serif"
-          fontSize="48"
-          fill="#cccccc"
-          letterSpacing="1"
-        >
-          <textPath href="#curveBottom" startOffset="55%" textAnchor="middle">
-            ADD BOTH TO CART!
-          </textPath>
-        </text>
-      </g>
-      <g>
-        <text
-          fontFamily="Impact, sans-serif"
-          fontSize="48"
-          fill="#164BC6"
-          letterSpacing="1"
-        >
-          <textPath href="#curveTop" startOffset="50%" textAnchor="middle">
-            HIGHLY ADDICTIVE.
-          </textPath>
-        </text>
-        <text
-          fontFamily="Impact, sans-serif"
-          fontSize="48"
-          fill="#164BC6"
-          letterSpacing="1"
-        >
-          <textPath href="#curveBottom" startOffset="55%" textAnchor="middle">
-            ADD BOTH TO CART!
-          </textPath>
-        </text>
-      </g>
-    </g>
-  </svg>
-);
-
 export default function ProductDisplay() {
   const [selectedProduct, setSelectedProduct] = useState<ProductType | null>(
     null
@@ -116,25 +60,38 @@ export default function ProductDisplay() {
 
   return (
     <div className="min-h-screen  px-3.5 py-3.5 font-sans relative overflow-x-hidden">
-      <div className="max-w-5xl mx-auto mt-20 relative">
-        <Sticker />
+      <div className="max-w-5xl mx-auto mt-[160px] md:mt-[350px] relative">
+        <div className="absolute w-full flex justify-center -top-[9%] left-0 md:left-[20%] md:-top-[24%]">
+          <picture className="items-center">
+            <source
+              media="(min-width: 769px)"
+              srcSet={Assets.productDisplay}
+              className=""
+            />
+            <img
+              src={Assets.productDisplayMb}
+              alt="Freshly baked artisanal bread"
+              className=""
+            />
+          </picture>
+        </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 relative z-0 justify-items-center">
+        <div className="grid md:grid-cols-2 gap-8 relative z-0 justify-items-center">
           {PRODUCTS.map((product) => (
             <div
               key={product.id}
-              className="w-full max-w-100 h-159.5 lg:max-w-125 lg:h-168.25 rounded-3xl p-0 bg-transparent flex flex-col items-center text-center relative"
+              className="w-full max-w-100 h-159.5 md:max-w-125 md:h-168.25 rounded-3xl p-0 bg-transparent flex flex-col items-center text-center relative"
             >
-              <div className="w-full h-100 lg:h-125 mb-6 relative border-[0.91px] border-[#0E0E0E33] rounded-[31.02px] flex items-center justify-center">
+              <div className="w-full h-100 md:h-125 mb-6 relative border-[0.91px] border-[#0E0E0E33] rounded-[31.02px] flex items-center justify-center">
                 <img
                   src={product.image}
                   alt={product.title}
-                  className="w-[233.58px] h-[344.52px] lg:w-112.5 lg:h-112 object-contain drop-shadow-xl"
+                  className="w-[233.58px] h-[344.52px] md:w-112.5 md:h-112 object-contain drop-shadow-xl"
                 />
               </div>
 
               <div className="w-full pb-6 flex flex-col items-center flex-1">
-                <h3 className="text-[18px] lg:text-[24px] font-bold text-black mb-3 font-serif">
+                <h3 className="text-[18px] md:text-[24px] font-bold text-black mb-3 font-serif">
                   {product.title}
                 </h3>
 
@@ -142,20 +99,20 @@ export default function ProductDisplay() {
                   {product.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="bg-yellow text-[12px] lg:text-[13px] font-medium leading-[100%] text-center px-3 py-1 rounded-full uppercase tracking-wider"
+                      className="bg-yellow text-[12px] md:text-[13px] font-medium leading-[100%] text-center px-3 py-1 rounded-full uppercase tracking-wider"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex flex-col lg:flex-row gap-4 w-full mt-auto items-center">
-                  <button className="w-full lg:flex-1 border border-[#164BC6] text-[#164BC6] h-16 lg:h-auto lg:py-3 max-w-100 flex items-center justify-center rounded-full font-bold text-sm uppercase tracking-wide hover:bg-blue-50 transition-colors">
+                <div className="flex flex-col md:flex-row gap-4 w-full mt-auto items-center">
+                  <button className="w-full md:flex-1 border border-[#164BC6] text-[#164BC6] h-16 md:h-auto md:py-3 max-w-100 flex items-center justify-center rounded-full font-bold text-sm uppercase tracking-wide hover:bg-blue-50 transition-colors">
                     Bulk Order
                   </button>
                   <button
                     onClick={() => handleOpen(product)}
-                    className="w-full lg:flex-1 bg-[#004aad] text-white h-16 lg:h-auto lg:py-3 max-w-100 flex items-center justify-center rounded-full font-bold text-sm uppercase tracking-wide hover:bg-blue-700 transition-colors shadow-blue-900/20 shadow-lg"
+                    className="w-full md:flex-1 bg-[#004aad] text-white h-16 md:h-auto md:py-3 max-w-100 flex items-center justify-center rounded-full font-bold text-sm uppercase tracking-wide hover:bg-blue-700 transition-colors shadow-blue-900/20 shadow-lg"
                   >
                     Order Online
                   </button>

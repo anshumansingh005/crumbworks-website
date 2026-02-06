@@ -67,7 +67,7 @@ const FeatureBanner = () => {
         ))}
       </div>
 
-      <div className="flex justify-center gap-1.5 mt-6 md:hidden">
+      <div className="flex justify-center gap-1.5 mt-4 md:hidden">
         {chunkedFeatures.map((_, index) => (
           <div
             key={index}
