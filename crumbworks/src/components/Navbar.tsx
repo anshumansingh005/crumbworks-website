@@ -12,8 +12,8 @@ const Navbar = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
 
   const leftLinks: NavLink[] = [
-    { name: "Our Flavour", href: "#flavour" },
-    { name: "Our Story", href: "#about" },
+    { name: "Our Flavour", href: "#our-flavour" },
+    { name: "Our Story", href: "#our-story" },
   ];
 
   useEffect(() => {
@@ -34,7 +34,7 @@ const Navbar = () => {
   return (
     <div style={{ minHeight: "83px" }}>
       <nav
-        className={`fixed top-4 inset-x-4 z-50 transition-all duration-500 ease-in-out ${
+        className={`fixed top-13 inset-x-4 z-101 transition-all duration-500 ease-in-out ${
           isVisible ? "translate-y-0 opacity-100" : "-translate-y-32 opacity-0"
         }`}
       >
@@ -116,7 +116,7 @@ const Navbar = () => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-xs uppercase tracking-widest font-bold text-brand-primary hover:text-brand-accent transition"
+                  className="text-xs uppercase font-bold text-brand-primary hover:text-brand-accent transition"
                 >
                   {link.name}
                 </a>
@@ -150,7 +150,7 @@ const Navbar = () => {
                 </a>
               ))}
 
-              <div className="flex items-center gap-6 border-t border-gray-100">
+              <div className="flex items-center gap-6 border-gray-100">
                 <a href="https://instagram.com" target="_blank">
                   <img src={Assets.instagram} className="w-6 h-6" />
                 </a>
