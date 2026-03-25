@@ -2,29 +2,29 @@ import { useState } from "react";
 
 const faqs = [
   {
-    question: "What makes your sourdough special?",
+    question: "What makes Crumbworks better than regular breadcrumbs?",
     answer:
-      "Our sourdough is made with a 100-year-old starter and fermented for 48 hours for maximum flavor and digestibility.",
+      "We focus on the foundation of a great crumb: the bread itself. Unlike mass-produced brands that often use artificial fillers or stale leftovers, our breadcrumbs are crafted for optimal texture, flavor, and crunch. This means they coat more evenly, crisp up perfectly, and elevate the flavor of your dishes rather than just acting as a bland filler.",
   },
   {
-    question: "Do you offer gluten-free options?",
+    question: "Which product should I use: American or Panko?",
     answer:
-      "While we specialize in traditional sourdough, we do offer a selection of gluten-free pastries baked in a separate area.",
+      "It depends on the dish you are creating! Our American-style breadcrumbs have a finer, more uniform texture, making them perfect for binding ingredients together (like in meatballs or meatloaf) or creating a smooth, even coating on chicken and fish. Our Panko breadcrumbs are larger, flakier, and airier. They absorb less oil and provide a massive, shatteringly crisp crunch, making them ideal for frying or topping baked casseroles and mac and cheese.",
   },
   {
-    question: "Can I order online for pickup?",
+    question: "Are your breadcrumbs made from real bread?",
     answer:
-      "Yes! You can order through our website and pick up your fresh bread and pastries at our bakery every morning.",
+      "Absolutely. We believe great breadcrumbs have to start with great bread. We use real, freshly baked loaves that are specifically formulated and toasted to create the perfect crumb structure. No shortcuts, just authentic ingredients.",
   },
   {
-    question: "Do you use organic ingredients?",
+    question: "Are your products gluten-free or low in sugar?",
     answer:
-      "Absolutely. We source 100% organic flour and local ingredients whenever possible to ensure the highest quality.",
+      "For customers mindful of their nutritional goals and weight management, our standard crumbs are naturally low in sugar without compromising on taste or browning ability. We also recognize the importance of dietary restrictions and offer dedicated gluten-free options. Always check the specific product packaging for the exact nutritional profile and allergen information!",
   },
   {
-    question: "Do you offer wholesale?",
+    question: "Can I use Crumbworks for baking instead of frying?",
     answer:
-      "Yes, we partner with local cafes and restaurants. Please contact us for wholesale inquiries and pricing.",
+      "Yes! Our breadcrumbs are incredibly versatile. You don't need to deep-fry to get a satisfying crunch. Toss our Panko or American crumbs with a little olive oil or melted butter and sprinkle them over baked fish, stuffed vegetables, or your favorite casseroles before they go into the oven. They will toast up beautifully.",
   },
 ];
 
@@ -53,7 +53,7 @@ const FAQ = () => {
   );
 };
 
-const Accordion = ({
+export const Accordion = ({
   title,
   children,
 }: {

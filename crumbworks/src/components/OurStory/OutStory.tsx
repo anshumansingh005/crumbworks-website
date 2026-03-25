@@ -9,14 +9,15 @@ const OutStory = (): React.ReactElement => {
         <div className="w-full lg:max-w-[425px] flex flex-col gap-6">
           <div className="overflow-hidden drop-shadow-xl w-full max-w-[400px] lg:max-w-[425px] mx-auto lg:mx-0">
             <img
-              src={Assets.ourStory.midstoryPic}
+              src={Assets.ourStory.vehiclePoster3}
               alt="Intro img"
               className="w-full lg:h-[424px] lg:w-[425px] h-[316px] object-cover hover:scale-105 transition-transform duration-500"
+              loading="lazy"
             />
           </div>
           <div className="lg:block">
             <p className="text-white text-[16px] lg:text-[18px] leading-relaxed">
-              We’re not trying to be a heritage brand. We just got tired of
+              We're not trying to be a heritage brand. We just got tired of
               pretending the existing crumbs were fine.
             </p>
           </div>
@@ -29,6 +30,7 @@ const OutStory = (): React.ReactElement => {
               src={Assets.ourStory.text3}
               alt="Our Story Title"
               className="w-full h-auto"
+              loading="lazy"
             />
           </div>
           <div className="hidden lg:block z-[100]">
@@ -36,6 +38,7 @@ const OutStory = (): React.ReactElement => {
               src={Assets.ourStory.text3}
               alt="Our Story"
               className="w-full max-w-[500px] h-auto lg:max-w-[807px] "
+              loading="lazy"
             />
           </div>
 
@@ -52,11 +55,13 @@ const OutStory = (): React.ReactElement => {
             src={Assets.pankobread}
             alt="Panko bread crumbs"
             className="absolute top-1/2 lg:left-[45%] left-[30%]  w-full h-full -translate-x-1/2 -translate-y-1/2 object-contain"
+            loading="lazy"
           />
           <img
             src={Assets.bannerAsset.bluePacket}
             alt="American Bread Crumbs"
             className="absolute top-1/2 lg:left-[89%] left-[71%]  w-full h-full -translate-x-1/2 -translate-y-1/2 object-contain"
+            loading="lazy"
           />
         </div>
       </div>

@@ -11,6 +11,7 @@ const Footer = () => {
               src={Assets.companyLogoWhite}
               alt="Crumbworks Logo"
               className="h-10 w-auto"
+              loading="lazy"
             />
           </a>
           <p className="text-sm leading-relaxed opacity-80 max-w-xs">
@@ -25,16 +26,16 @@ const Footer = () => {
         <FooterAccordion title="Our Flavours">
           <div className="flex flex-col gap-3">
             <a
-              href="#sourdough"
+              href="#classic"
               className="text-sm hover:text-brand-accent transition-colors"
             >
-              Sourdough
+              Classic Bread Crumbs
             </a>
             <a
-              href="#pastries"
+              href="#panko"
               className="text-sm hover:text-brand-accent transition-colors"
             >
-              Pastries
+              Panko Bread Crumbs
             </a>
           </div>
         </FooterAccordion>
@@ -65,28 +66,43 @@ const Footer = () => {
         <FooterAccordion title="Follow Us">
           <div className="flex items-center gap-4">
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/crumbwork/"
               target="_blank"
               rel="noreferrer"
               className="hover:opacity-70 transition-opacity"
             >
-              <img src={Assets.instagram} alt="Instagram" className="w-6 h-6" />
+              <img
+                src={Assets.instagram}
+                alt="Instagram"
+                className="w-6 h-6"
+                loading="lazy"
+              />
             </a>
             <a
-              href="https://facebook.com"
+              href=""
               target="_blank"
               rel="noreferrer"
               className="hover:opacity-70 transition-opacity"
             >
-              <img src={Assets.facebook} alt="Facebook" className="w-6 h-6" />
+              <img
+                src={Assets.facebook}
+                alt="Facebook"
+                className="w-6 h-6"
+                loading="lazy"
+              />
             </a>
             <a
-              href="https://linkedin.com"
+              href=""
               target="_blank"
               rel="noreferrer"
               className="hover:opacity-70 transition-opacity"
             >
-              <img src={Assets.linkedin} alt="LinkedIn" className="w-6 h-6" />
+              <img
+                src={Assets.linkedin}
+                alt="LinkedIn"
+                className="w-6 h-6"
+                loading="lazy"
+              />
             </a>
           </div>
         </FooterAccordion>

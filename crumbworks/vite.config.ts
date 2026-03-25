@@ -11,7 +11,7 @@ export default defineConfig({
     }),
     tailwindcss(),
   ],
-  base: "/beta-crumbwork",
+  base: "/",
   resolve: {
     alias: {
       "@assets": path.resolve(__dirname, "./src/assets"),

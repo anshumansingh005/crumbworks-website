@@ -6,6 +6,7 @@ export interface Feature {
   title: string;
   src: string;
 }
+
 const features: Feature[] = [
   { id: 1, title: "NO PRESERVATIVES", src: Assets.noPreservatives },
   { id: 2, title: "LOW SODIUM", src: Assets.lowSodium },
@@ -55,6 +56,7 @@ const FeatureBanner = () => {
                     src={item.src}
                     alt={item.title}
                     className="w-[60.72px] h-[60.72px] md:w-23 md:h-23 object-contain"
+                    loading="lazy"
                   />
                 </div>
 

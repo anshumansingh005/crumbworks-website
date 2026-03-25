@@ -10,6 +10,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isAtTop, setIsAtTop] = useState(true);
 
   const leftLinks: NavLink[] = [
     { name: "Our Flavour", href: "#our-flavour" },
@@ -18,13 +19,21 @@ const Navbar = () => {
 
   useEffect(() => {
     const controlNavbar = () => {
-      if (window.scrollY > lastScrollY && window.scrollY > 80) {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY < 10) {
+        setIsAtTop(true);
+      } else {
+        setIsAtTop(false);
+      }
+
+      if (currentScrollY > lastScrollY && currentScrollY > 80) {
         setIsVisible(false);
         setIsOpen(false);
       } else {
         setIsVisible(true);
       }
-      setLastScrollY(window.scrollY);
+
+      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener("scroll", controlNavbar);
@@ -34,7 +43,9 @@ const Navbar = () => {
   return (
     <div style={{ minHeight: "83px" }}>
       <nav
-        className={`fixed top-13 inset-x-4 z-101 transition-all duration-500 ease-in-out ${
+        className={`fixed inset-x-4 z-101 transition-all duration-500 ease-in-out ${
+          isAtTop ? "top-13" : "top-5"
+        } ${
           isVisible ? "translate-y-0 opacity-100" : "-translate-y-32 opacity-0"
         }`}
       >
@@ -73,31 +84,42 @@ const Navbar = () => {
               </button>
             </div>
 
-            <div className="hidden md:flex flex-1 items-center gap-1">
+            <div className="hidden md:flex flex-1 items-center gap-2">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/crumbwork/"
                 target="_blank"
-                className="p-2 hover:opacity-70 transition"
+                className="hover:opacity-70 transition"
+                rel="noreferrer"
               >
                 <img
                   src={Assets.instagram}
                   alt="Instagram"
-                  className="w-5 h-5"
+                  className="w-[38px] h-[38px]"
                 />
               </a>
               <a
-                href="https://facebook.com"
+                href=""
                 target="_blank"
-                className="p-2  px-3 hover:opacity-70 transition"
+                className="hover:opacity-70 transition"
+                rel="noreferrer"
               >
-                <img src={Assets.facebook} alt="Facebook" className="w-5 h-5" />
+                <img
+                  src={Assets.facebook}
+                  alt="Facebook"
+                  className="w-[38px] h-[38px"
+                />
               </a>
               <a
-                href="https://blinkit.com/prn/x/prid/309921"
+                href=""
                 target="_blank"
-                className="p-2 hover:opacity-70 transition"
+                className="hover:opacity-70 transition"
+                rel="noreferrer"
               >
-                <img src={Assets.linkedin} alt="LinkedIn" className="w-5 h-5" />
+                <img
+                  src={Assets.linkedin}
+                  alt="LinkedIn"
+                  className="w-[38px] h-[38px]"
+                />
               </a>
             </div>
 
@@ -144,21 +166,37 @@ const Navbar = () => {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="text-xl font-display font-bold text-brand-primary hover:text-brand-accent"
+                  className="font-display font-semibold text-brand-primary hover:text-brand-accent fo"
                 >
                   {link.name}
                 </a>
               ))}
 
-              <div className="flex items-center gap-6 border-gray-100">
-                <a href="https://instagram.com" target="_blank">
-                  <img src={Assets.instagram} className="w-6 h-6" />
+              <div className="flex items-center gap-1 ">
+                <a
+                  href="https://www.instagram.com/crumbwork/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img
+                    src={Assets.instagram}
+                    className="w-6 h-6"
+                    alt="Instagram"
+                  />
                 </a>
-                <a href="https://facebook.com" target="_blank">
-                  <img src={Assets.facebook} className="w-6 h-6" />
+                <a href="" target="_blank" rel="noreferrer">
+                  <img
+                    src={Assets.facebook}
+                    className="w-6 h-6"
+                    alt="Facebook"
+                  />
                 </a>
-                <a href="https://blinkit.com/prn/x/prid/309921" target="_blank">
-                  <img src={Assets.linkedin} className="w-6 h-6" />
+                <a href="" target="_blank" rel="noreferrer">
+                  <img
+                    src={Assets.linkedin}
+                    className="w-6 h-6"
+                    alt="LinkedIn"
+                  />
                 </a>
               </div>
             </div>

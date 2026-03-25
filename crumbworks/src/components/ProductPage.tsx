@@ -1,5 +1,7 @@
 import { Assets } from "@assets";
 import { useEffect, useState } from "react";
+import ContactSection from "./ContactSection";
+import { Accordion } from "./FAQ";
 
 interface ProductType {
   id: number;
@@ -31,13 +33,32 @@ const PRODUCTS: ProductType[] = [
   },
 ];
 
+const faqs = [
+  {
+    question: "Ingredients",
+    answer:
+      "Refined Wheat Flour (Maida), Dried yeast, lodized Salt, Edible Vegetable Oil (Rice Bran Oil), Dextrose, Wheat gluten, Flour improver (INS 1100, 282), (Numbers referred above are as per international Numbering System. For Allergen see ingredient in  .",
+  },
+  {
+    question: "Nutritions",
+    answer:
+      "While we specialize in traditional sourdough, we do offer a selection of gluten-free pastries baked in a separate area.",
+  },
+  {
+    question: "How to use it?",
+    answer:
+      "Yes! You can order through our website and pick up your fresh bread and pastries at our bakery every morning.",
+  },
+];
+
 export default function ProductDisplay() {
   const [selectedProduct, setSelectedProduct] = useState<ProductType | null>(
     null
   );
   const [isAnimating, setIsAnimating] = useState(false);
+  const [showBulkOrder, setShowBulkOrder] = useState(false);
 
-  const handleOpen = (product: any) => {
+  const handleOpen = (product: ProductType): void => {
     setSelectedProduct(product);
     setTimeout(() => setIsAnimating(true), 10);
   };
@@ -48,20 +69,28 @@ export default function ProductDisplay() {
   };
 
   useEffect(() => {
-    if (selectedProduct) {
+    if (selectedProduct || showBulkOrder) {
       document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
     }
     return () => {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
     };
-  }, [selectedProduct]);
+  }, [selectedProduct, showBulkOrder]);
 
   return (
-    <div className="min-h-screen  px-3.5 py-3.5 font-sans relative overflow-x-hidden">
-      <div className="max-w-5xl mx-auto mt-[160px] md:mt-[350px] relative">
-        <div className="absolute w-full flex justify-center -top-[9%] left-0 md:left-[20%] md:-top-[24%]">
+    <div
+      id="our-flavour"
+      className="px-3.5 py-3.5 font-sans relative overflow-x-hidden"
+    >
+      {" "}
+      <div className="max-w-5xl mx-auto mt-[160px] md:mt-[230px] relative">
+        <div className="absolute w-full flex justify-center -top-[9%] left-0 md:left-[0] md:-top-[26%]">
+          {/* md:left-[20%] md:-top-[24%] */}
           <picture className="items-center">
             <source
               media="(min-width: 769px)"
@@ -72,6 +101,7 @@ export default function ProductDisplay() {
               src={Assets.productDisplayMb}
               alt="Freshly baked artisanal bread"
               className=""
+              loading="lazy"
             />
           </picture>
         </div>
@@ -87,6 +117,7 @@ export default function ProductDisplay() {
                   src={product.image}
                   alt={product.title}
                   className="w-[233.58px] h-[344.52px] md:w-112.5 md:h-112 object-contain drop-shadow-xl"
+                  loading="lazy"
                 />
               </div>
 
@@ -107,14 +138,17 @@ export default function ProductDisplay() {
                 </div>
 
                 <div className="flex flex-col md:flex-row gap-4 w-full mt-auto items-center">
-                  <button className="w-full md:flex-1 border border-[#164BC6] text-[#164BC6] h-16 md:h-auto md:py-3 max-w-100 flex items-center justify-center rounded-full font-bold text-sm uppercase tracking-wide hover:bg-blue-50 transition-colors">
+                  <button
+                    onClick={() => setShowBulkOrder(true)}
+                    className="w-full md:flex-1 border border-[#164BC6] text-[#164BC6] h-16 md:h-auto md:py-3 max-w-100 flex items-center justify-center rounded-full font-bold text-sm uppercase tracking-wide hover:bg-blue-50 transition-colors"
+                  >
                     Bulk Order
                   </button>
                   <button
                     onClick={() => handleOpen(product)}
                     className="w-full md:flex-1 bg-[#004aad] text-white h-16 md:h-auto md:py-3 max-w-100 flex items-center justify-center rounded-full font-bold text-sm uppercase tracking-wide hover:bg-blue-700 transition-colors shadow-blue-900/20 shadow-lg"
                   >
-                    Order Online
+                    More Info
                   </button>
                 </div>
               </div>
@@ -122,7 +156,6 @@ export default function ProductDisplay() {
           ))}
         </div>
       </div>
-
       {selectedProduct && (
         <div className="fixed inset-0 z-50 flex items-end justify-center sm:items-center">
           <div
@@ -133,9 +166,9 @@ export default function ProductDisplay() {
           />
 
           <div
-            className={`
-              bg-[#fbfceb] w-full max-w-lg h-[85vh] sm:h-auto sm:max-h-[90vh]
-              rounded-t-[40px] sm:rounded-[40px] p-0 overflow-hidden flex flex-col relative
+            className={` lg:py-[30px] lg:px-[40px] p-[14px]
+              bg-[#fbfceb] w-full max-w-lg lg:max-w-[1193px] lg:max-h-[681px] h-[85vh] sm:h-auto sm:max-h-[90vh]
+              rounded-t-[32px] sm:rounded-[40px] p-0  flex flex-col lg:flex-row relative gap-[24px] [md:gap-31px] overflow-y-auto
               transition-transform duration-300 transform
               ${
                 isAnimating
@@ -144,23 +177,24 @@ export default function ProductDisplay() {
               }
             `}
           >
-            <div className="overflow-y-auto flex-1">
-              <div className="bg-[#fbdb04] w-full p-8 pb-12 rounded-b-[40px] relative flex justify-center">
-                <button
-                  onClick={handleClose}
-                  className="absolute top-6 right-6 p-2 bg-white/20 rounded-full hover:bg-white/40 transition"
-                >
-                  X
-                </button>
+            <button
+              onClick={handleClose}
+              className="absolute top-6 right-6 p-2 bg-black/5 rounded-full hover:bg-black/10 transition z-20"
+            >
+              X
+            </button>
 
-                <img
-                  src={selectedProduct.image}
-                  alt={selectedProduct.title}
-                  className="w-48 h-auto drop-shadow-2xl object-contain mt-4"
-                />
-              </div>
+            <div className="w-full w-[100%] h-[400px] lg:w-1/2 lg:max-w-[511px] lg:h-[511px] p-4 pb-12 lg:p-0 relative flex items-center justify-center shrink-0 bg-yellow rounded-2xl md:rounded-[22px] mx-auto lg:mx-0">
+              <img
+                src={selectedProduct.image}
+                alt={selectedProduct.title}
+                className="w-full max-w-[250px] h-[400px] lg:max-w-[420px] lg:w-[400px] lg:h-[472px] drop-shadow-2xl object-contain mt-4 lg:mt-0"
+                loading="lazy"
+              />
+            </div>
 
-              <div className="p-8">
+            <div className="w-full lg:w-1/2 flex flex-col">
+              <div>
                 <h2 className="text-3xl font-serif font-bold text-gray-900 mb-4">
                   {selectedProduct.title}
                 </h2>
@@ -195,12 +229,55 @@ export default function ProductDisplay() {
                       <img
                         src={selectedProduct.image}
                         className="w-12 opacity-80"
+                        loading="lazy"
                       />
                     </div>
                   ))}
                 </div>
               </div>
+              <div>
+                <div className="flex flex-col gap-4 mb-8">
+                  {faqs.map((faq, index) => (
+                    <Accordion key={index} title={faq.question}>
+                      <p className="text-sm md:text-base opacity-80 leading-relaxed">
+                        {faq.answer}
+                      </p>
+                    </Accordion>
+                  ))}
+                </div>
+              </div>
             </div>
+          </div>
+        </div>
+      )}
+      {showBulkOrder && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div
+            className="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity"
+            onClick={() => setShowBulkOrder(false)}
+          />
+          <div className="relative w-full max-w-2xl bg-bg rounded-[32px] overflow-hidden shadow-2xl transform transition-all">
+            <button
+              onClick={() => setShowBulkOrder(false)}
+              className="absolute top-6 right-6 p-2 bg-white/20 text-white rounded-full hover:bg-white/30 transition z-20"
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 1L13 13M1 13L13 1"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+            <ContactSection />
           </div>
         </div>
       )}

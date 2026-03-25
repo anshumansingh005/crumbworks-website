@@ -1,4 +1,4 @@
-import { Assets } from "@assets";
+import {Assets} from '@assets';
 
 const Intro = () => {
   return (
@@ -17,7 +17,7 @@ const Intro = () => {
         <div className="w-full lg:max-w-[316px] flex flex-col gap-6">
           <div className="overflow-hidden drop-shadow-xl w-full max-w-[400px] lg:max-w-[316px] mx-auto lg:mx-0">
             <img
-              src={Assets.ourStory.introImg}
+              src={Assets.ourStory.vehiclePoster2}
               alt="Intro img"
               className="w-full h-[316px] object-cover hover:scale-105 transition-transform duration-500"
             />
@@ -46,11 +46,7 @@ const Intro = () => {
               We say this as people who’ve been personally victimised by sad,
               stale supermarket crumbs that taste like the cardboard box they
               came in. At some point, we realised the breadcrumb aisle wasn’t
-              broken, it had just never been built properly. We say this as
-              people who’ve been personally victimised by sad, stale supermarket
-              crumbs that taste like the cardboard box they came in. At some
-              point, we realised the breadcrumb aisle wasn’t broken, it had just
-              never been built properly.
+              broken, it had just never been built properly.
             </p>
           </div>
         </div>

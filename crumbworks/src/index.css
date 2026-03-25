@@ -2,12 +2,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
 @import "tailwindcss";
 
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
 @theme {
   --color-bg: #fafae3;
   --color-white: #ffffff;
   --color-yellow: #ffd700;
   --color-blue: #0044cc;
   --color-black: #0e0e0e;
+  --color-pink: #ff0090;
 }
 @layer base {
   html {
@@ -31,8 +37,8 @@
 
   /* Hide scrollbar for IE, Edge and Firefox */
   .no-scrollbar {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 }
 
@@ -54,3 +60,28 @@ body,
 .navHeight {
   max-width: 100px;
 }
+.bg-yellowZig {
+  background-image: url("./assets/yelloZig.svg");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+.bg-yellowZigMd {
+  background-image: url("./assets/yelloZigMB.svg");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+
+.bg-reviewCard {
+  background-image: url("./assets/customer-frame.webp");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+.upside-down {
+  transform: rotate(180deg);
+}
+/* * {
+  outline: 1px solid red;
+} */
